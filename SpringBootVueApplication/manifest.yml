@@ -1,0 +1,10 @@
+---
+applications:
+  - name: todos-server
+    memory: 1G
+    route: true
+    path: target/SpringBootVueApplication-0.0.1-SNAPSHOT.jar
+    routes:
+    - route: https://todos-vuejs.apps.pcfone.io/api
+    services:
+    - mysql
