@@ -1,5 +1,8 @@
 {
   "name": "client",
+  "engines": {
+    "node": ">=10.12.0"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
