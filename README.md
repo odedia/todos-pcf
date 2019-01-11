@@ -7,7 +7,7 @@ This is a Todo demo application that uses the following components:
 - Runs on Pivotal Cloud Foundry.
 - Includes separate concourse pipelines for the frontend and the backend.
 
-The application shows the following abilities of PCF:
+The application shows the following features of PCF:
 1. The VueJS application is packaged as a docker image to illustrate the ability of PCF to run cloud-native docker images.
 2. The Spring Boot application uses the Java buildpack. There is no need to create a Dockerfile for the backend.
 3. The Spring Boot application binds itself to a MySQL Service provided from the PCF marketplace. 
