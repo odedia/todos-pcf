@@ -3,6 +3,8 @@
 set -e -u -x
 
 artifact=source-code/SpringBootVueApplication
+
+export ROOT_FOLDER=$( pwd )
 M2_HOME=${HOME}/.m2
 mkdir -p ${M2_HOME}
  
