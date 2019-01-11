@@ -14,4 +14,4 @@ outputs:
 - name: package-output
 
 run:
-  path: SpringBootVueApplication/ci/tasks/package.sh
+  path: pcf-spring-vuejs/SpringBootVueApplication/ci/tasks/package.sh
