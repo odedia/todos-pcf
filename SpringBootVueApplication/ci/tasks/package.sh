@@ -2,7 +2,7 @@
 
 set -e +x
 
-artifact=todos-backend
+artifact=SpringBootVueApplication
 
 pushd ${artifact}
   echo "Packaging JAR"
