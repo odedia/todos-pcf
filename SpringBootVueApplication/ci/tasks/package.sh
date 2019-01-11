@@ -16,7 +16,7 @@ if [ $jar_count -gt 1 ]; then
   exit 1
 fi
 
-find ${artifact}/target -type f -name *.jar -exec cp "{}" package-output/${artifact}.jar \;
+find ${artifact}/target -type f -name *.jar -exec cp "{}" package-output/app.jar \;
 
 echo "Done packaging"
 exit 0
