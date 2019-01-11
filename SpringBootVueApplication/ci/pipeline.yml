@@ -26,5 +26,5 @@ jobs:
   - put: cf-push-resource
     params:
       manifest: source-code/SpringBootVueApplication/manifest.yml
-      path: package-output/concourse-sample-app.jar
+      path: package-output/app.jar
 
