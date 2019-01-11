@@ -19,29 +19,57 @@ Based on work published by Andrew Hughes at the Okta developer blog: https://dev
 
 You can push the code either via the commandline or through Concourse.
 
-Via command line
-----------------
+Initial setup
+-------------
 
-Create a mysql service called mysql. The name of the service varies by PCF foundation, so check your plans via `cf marketplace` command. Here's an example:
+Create a PCF mysql service called mysql. The name of the service varies by PCF foundation, so check your plans via `cf marketplace` command. Here's an example:
 
 `cf create-service p.mysql db-small mysql`
+
+Edit `manifest.yml` in `VuewJSClient` folder and replace the route with the route you plan to use and `odedia` with your docker username.
+Edot the `manifest.yml` in `SpringBootVueApplication` folder and replace the route with the route you plan to use in your PCF foundation. Make sure you keep the `/api` in the end.
+
+Via command line
+----------------
 
 Inside the VueJSClient folder, run a docker build and push to dockerhub:
 
 ```
 docker build -t <your-dockerhub-username>/todos-ui .
-docker push odedia/todos-ui
+docker push <your-dockerhub-username>/todos-ui
 ```
-
-Edit manifest.yml to replace `<changeme>` with the route you plan to use and <docker-username> with your docker username.
 
 Push the frontend app:
 
 `cf push`
 
-Inside the `SpringBootVueApplication` folder, edit the `manifest.yml`, replace the route with the route you plan to use in your PCF foundation. Make sure you keep the `/api` in the end.
 
 Push the backend app:
 `cf push`
 
 
+Via concourse pipeline
+----------------------
+
+Login to your concourse server:
+
+`fly -t concourse login -c <url>`
+
+Create a `params.yml` in your home directory (**never put this file inside your git folder!**) with your specific parameters, as follows:
+```
+---
+cf-api: <redacted>
+cf-user: <redacted>
+cf-password: <redacted>
+cf-org: <redacted>
+cf-space: <redacted>
+docker-hub-email: <redacted>
+docker-hub-username: <redacted>
+docker-hub-password: <redacted>
+```
+
+For the frontend, run:
+`fly -t concourse set-pipeline -p todos-ui -c VueJSClient/ci/pipeline.yml -l ~/params.yml`
+
+For the backend, run:
+`fly -t concourse set-pipeline -p todos-backend -c SpringBootVueApplication/ci/pipeline.yml -l ~/params.yml`
