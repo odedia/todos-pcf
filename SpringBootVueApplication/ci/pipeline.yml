@@ -5,8 +5,6 @@ resources:
   source:
     uri: https://github.com/odedia/pcf-spring-vuejs
     branch: master
-    paths:
-    - SpringBootVueApplication/*
 
 - name: cf-push-resource
   type: cf
