@@ -20,7 +20,7 @@ You can push the code either via the commandline or through Concourse.
 Initial setup
 -------------
 
-Create a PCF mysql service called mysql. The name of the service varies by PCF foundation, so check your plans via `cf marketplace` command. Here's an example:
+Create a PCF mysql service called `mysql`. The name of the service varies by PCF foundation, so check your plans via `cf marketplace` command. Here's an example:
 
 `cf create-service p.mysql db-small mysql`
 
