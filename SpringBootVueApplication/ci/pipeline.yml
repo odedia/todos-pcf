@@ -23,8 +23,8 @@ jobs:
   - get: todos-backend
     trigger: true
   - task: package
-    file: pcf-spring-vuejs/SpringBootVueApplication/ci/tasks/package.yml
+    file: SpringBootVueApplication/ci/tasks/package.yml
   - put: cf-push-resource
     params:
-      manifest: pcf-spring-vuejs/SpringBootVueApplication/manifest.yml
+      manifest: SpringBootVueApplication/manifest.yml
       path: package-output/app.jar
