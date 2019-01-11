@@ -14,7 +14,7 @@ resources:
     branch: master
     paths:
     - VueJSClient/**/*
-    - VueJSClient
+    - VueJSClient/*
 
 - name: cf-push-resource
   type: cf
