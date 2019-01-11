@@ -25,8 +25,8 @@ jobs:
   - get: todos-backend
     trigger: true
   - task: package
-    file: todos-backend/ci/tasks/package.yml
+    file: SpringBootVueApplication/ci/tasks/package.yml
   - put: cf-push-resource
     params:
-      manifest: todos-backend/manifest.yml
+      manifest: SpringBootVueApplication/manifest.yml
       path: package-output/app.jar
