@@ -5,7 +5,7 @@ applications:
     routes:
     - route: https://todos-vuejs.apps.pcfone.io
     docker:
-      image: odedia/vuejs-demo
+      image: odedia/todos-ui
   - name: todos-server
     memory: 1G
     route: true
