@@ -22,9 +22,9 @@ jobs:
   - get: source-code
     trigger: true
   - task: package
-    file: source-code/ci/tasks/package.yml
+    file: source-code/SpringBootVueApplication/ci/tasks/package.yml
   - put: cf-push-resource
     params:
-      manifest: source-code/manifest.yml
+      manifest: source-code/SpringBootVueApplication/manifest.yml
       path: package-output/concourse-sample-app.jar
 
