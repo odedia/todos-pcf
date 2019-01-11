@@ -11,9 +11,7 @@ The application shows the following features of PCF:
 1. The VueJS application is packaged as a docker image to illustrate the ability of PCF to run cloud-native docker images.
 2. The Spring Boot application uses the Java buildpack. There is no need to create a Dockerfile for the backend.
 3. The Spring Boot application binds itself to a MySQL Service provided from the PCF marketplace. 
-4. Both frontend and backend share the same base domain URL. PCF handles the routing tier for us. As a result - there is no need to deal with port bindings or to add CORS support to our backend. VueJS maps to the / path and Spring Boot maps to the /api path.
-
-Based on work published by Andrew Hughes at the Okta developer blog: https://developer.okta.com/blog/2018/11/20/build-crud-spring-and-vue
+4. Both frontend and backend share the same base domain URL. PCF handles the routing tier for us. As a result - there is no need to deal with port bindings or to add CORS support to our backend. VueJS maps to the `/` path and Spring Boot maps to the `/api` path.
 
 # Running
 
@@ -73,3 +71,6 @@ For the frontend, run:
 
 For the backend, run:
 `fly -t concourse set-pipeline -p todos-backend -c SpringBootVueApplication/ci/pipeline.yml -l ~/params.yml`
+
+Credits:
+Based on work published by Andrew Hughes at the Okta developer blog: https://developer.okta.com/blog/2018/11/20/build-crud-spring-and-vue
