@@ -1,5 +1,6 @@
 import axios from 'axios'  
-  
+
+//The updated code is using PCF route mappings instead of port binding.
 //const SERVER_URL = 'http://localhost:9000';  
   
 const instance = axios.create({  
