@@ -5,4 +5,4 @@ applications:
     routes:
     - route: https://todos-vuejs.apps.pcfone.io
     docker:
-      image: odedia/vuejs-demo
+      image: odedia/todos-ui
