@@ -20,12 +20,15 @@ You can push the code either via the commandline or through Concourse.
 Initial setup
 -------------
 
-Create a PCF mysql service called `mysql`. The name of the service varies by PCF foundation, so check your plans via `cf marketplace` command. Here's an example:
+Create a PCF mysql service called `mysql`. The name of the mysql service varies by PCF foundation, so check your plans via the `cf marketplace` command. Here's an example:
 
 `cf create-service p.mysql db-small mysql`
 
-Edit `manifest.yml` in `VuewJSClient` folder and replace the route with the route you plan to use and `odedia` with your docker username.
-Edot the `manifest.yml` in `SpringBootVueApplication` folder and replace the route with the route you plan to use in your PCF foundation. Make sure you keep the `/api` in the end.
+Edit `manifest.yml` in the `VuewJSClient` folder.
+- Replace the route with the route you plan to use.
+- Replace `odedia` with your docker username.
+
+Edit `manifest.yml` in the `SpringBootVueApplication` folder and replace the route with the route you plan to use in your PCF foundation. Make sure you keep the `/api` in the end.
 
 Via command line
 ----------------
@@ -37,12 +40,14 @@ docker build -t <your-dockerhub-username>/todos-ui .
 docker push <your-dockerhub-username>/todos-ui
 ```
 
-Push the frontend app:
+Push the frontend app from the `VuewJSClient` folder:
 
-`cf push`
+```
+cf push
+```
 
 
-Push the backend app:
+Push the backend app from the `SpringBootVueApplication` folder:
 `cf push`
 
 
@@ -53,7 +58,8 @@ Login to your concourse server:
 
 `fly -t concourse login -c <url>`
 
-Create a `params.yml` in your home directory (**never put this file inside your git folder!**) with your specific parameters, as follows:
+Create a `params.yml` in your home directory (**never put this file inside your git folder! Credentials may leak!**). 
+Add the following parameters:
 ```
 ---
 cf-api: <redacted>
