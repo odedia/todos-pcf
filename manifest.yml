@@ -3,7 +3,7 @@ applications:
   - name: todos-ui
     memory: 256M
     routes:
-    - route: https://todos-vuejs.apps.pcfone.io
+    - route: https://<changeme>
     docker:
       image: odedia/todos-ui
   - name: todos-server
@@ -11,6 +11,6 @@ applications:
     route: true
     path: SpringBootVueApplication/target/app.jar
     routes:
-    - route: https://todos-vuejs.apps.pcfone.io/api
+    - route: https://<changeme>/api
     services:
     - mysql
