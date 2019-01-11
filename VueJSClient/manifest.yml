@@ -6,3 +6,5 @@ applications:
     - route: https://todos-vuejs.apps.pcfone.io
     docker:
       image: odedia/todos-ui
+
+
