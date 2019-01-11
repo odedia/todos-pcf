@@ -16,7 +16,7 @@ resources:
     password: {{cf-password}}
     organization: {{cf-org}}
     space: {{cf-space}}
-    skip_cert_check: true
+    skip_cert_check: false
 
 jobs:
 - name: build-artifact-job
