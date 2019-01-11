@@ -8,3 +8,4 @@ applications:
     - route: https://todos-vuejs.apps.pcfone.io/api
     services:
     - mysql
+    
