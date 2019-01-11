@@ -3,7 +3,7 @@ Todo on PCF
 
 This is a Todo demo application that uses the following components:
 - VueJS application for the frontend.
-- Spring Boot with MySQL for backend.
+- Spring Boot with MySQL for the backend.
 - Runs on Pivotal Cloud Foundry.
 - Includes separate concourse pipelines for the frontend and the backend.
 
