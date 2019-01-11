@@ -1,0 +1,32 @@
+---
+resources:
+- name: todos-backend
+  type: git
+  source:
+    uri: https://github.com/odedia/pcf-spring-vuejs
+    branch: master
+    paths:
+    - SpringBootVueApplication/*
+
+- name: cf-push-resource
+  type: cf
+  source:
+    api: {{cf-api}}
+    username: {{cf-user}}
+    password: {{cf-password}}
+    organization: {{cf-org}}
+    space: {{cf-space}}
+    skip_cert_check: true
+
+jobs:
+- name: build-artifact-job
+  public: true
+  plan:
+  - get: todos-backend
+    trigger: true
+  - task: package
+    file: todos-backend/ci/tasks/package.yml
+  - put: cf-push-resource
+    params:
+      manifest: todos-backend/manifest.yml
+      path: package-output/app.jar

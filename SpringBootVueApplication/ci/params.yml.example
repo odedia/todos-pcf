@@ -1,0 +1,6 @@
+---
+cf-api: api.run.some-endpoint
+cf-user: some-user
+cf-password: some-password
+cf-org: some-org
+cf-space: some-space
