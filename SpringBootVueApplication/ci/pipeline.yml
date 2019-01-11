@@ -1,0 +1,30 @@
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/odedia/todos-pcf.git
+    branch: master
+
+- name: cf-push-resource
+  type: cf
+  source:
+    api: {{cf-api}}
+    username: {{cf-user}}
+    password: {{cf-password}}
+    organization: {{cf-org}}
+    space: {{cf-space}}
+    skip_cert_check: true
+
+jobs:
+- name: package
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+  - task: package
+    file: source-code/ci/tasks/package.yml
+  - put: cf-push-resource
+    params:
+      manifest: source-code/manifest.yml
+      path: package-output/concourse-sample-app.jar
+
