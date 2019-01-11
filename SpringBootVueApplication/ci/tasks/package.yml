@@ -13,4 +13,4 @@ outputs:
 - name: package-output
 
 run:
-  path: SpringBootVueApplication/ci/tasks/package.sh
+  path: todos-pcf/SpringBootVueApplication/ci/tasks/package.sh
