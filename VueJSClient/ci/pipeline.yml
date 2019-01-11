@@ -1,0 +1,49 @@
+resources:
+- name: todos-ui-docker-image
+  type: docker-image
+  source:
+    username: ((docker-hub-username))
+    password: ((docker-hub-password))
+    repository: ((docker-hub-username))/todos-ui
+    email: ((docker-hub-email))
+
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/odedia/todos-pcf.git
+    branch: master
+
+- name: cf-push-resource
+  type: cf
+  source:
+    api: ((cf-api))
+    username: ((cf-user))
+    password: ((cf-password))
+    organization: ((cf-org))
+    space: ((cf-space))
+    skip_cert_check: false
+
+jobs:
+- name: publish
+  public: true
+  serial: true
+  plan:
+  - get: source-code
+    trigger: true
+  - put: todos-ui-docker-image
+    params:
+      build: source-code/VueJSClient
+
+- name: push-to-pcf
+  public: true
+  serial: true
+  plan:
+  - get: source-code
+  - get: todos-ui-docker-image
+    passed:
+    - publish
+    trigger: true
+  - put: cf-push-resource
+    params:
+      manifest: source-code/VueJSClient/manifest.yml
+

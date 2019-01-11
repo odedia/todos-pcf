@@ -8,15 +8,15 @@ resources:
 - name: cf-push-resource
   type: cf
   source:
-    api: {{cf-api}}
-    username: {{cf-user}}
-    password: {{cf-password}}
-    organization: {{cf-org}}
-    space: {{cf-space}}
+    api: ((cf-api))
+    username: ((cf-user))
+    password: ((cf-password))
+    organization: ((cf-org))
+    space: ((cf-space))
     skip_cert_check: false
 
 jobs:
-- name: package
+- name: build-jar
   public: true
   plan:
   - get: source-code
