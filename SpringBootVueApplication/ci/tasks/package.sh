@@ -4,7 +4,7 @@ set -e -u -x
 
 artifact=source-code
 
-pushd ${artifact}
+pushd ${artifact}/SpringBootVueApplication
   echo "Packaging JAR"
   ./mvnw clean package
 popd
