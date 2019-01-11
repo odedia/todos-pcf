@@ -6,6 +6,7 @@ resources:
     branch: master
     paths:
     - SpringBootVueApplication/**/*
+    - SpringBootVueApplication/*
 
 - name: cf-push-resource
   type: cf
