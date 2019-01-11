@@ -12,6 +12,8 @@ resources:
   source:
     uri: https://github.com/odedia/todos-pcf.git
     branch: master
+    paths:
+    - VueJSClient/*
 
 - name: cf-push-resource
   type: cf
