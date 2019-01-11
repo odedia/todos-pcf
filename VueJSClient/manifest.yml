@@ -3,6 +3,6 @@ applications:
   - name: todos-ui
     memory: 256M
     routes:
-    - route: https://todos-vuejs.apps.pcfone.io
+    - route: https://<changeme>
     docker:
-      image: odedia/todos-ui
+      image: <docker-username>/todos-ui
