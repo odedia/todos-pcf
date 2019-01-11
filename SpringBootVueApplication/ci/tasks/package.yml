@@ -13,4 +13,4 @@ outputs:
 - name: package-output
 
 run:
-  path: source-code/ci/tasks/package.sh
+  path: source-code/SpringBootVueApplication/ci/tasks/package.sh
