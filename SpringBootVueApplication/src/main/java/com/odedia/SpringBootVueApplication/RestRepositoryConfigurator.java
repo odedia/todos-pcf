@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * IDs are not returned by RestRepository by default. I like them exposed so that the client can easily find
  * the ID of created and listed resources.
- * ABCD
+ * ABCDeee
  * */
 @Component
 public class RestRepositoryConfigurator implements RepositoryRestConfigurer {
