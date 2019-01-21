@@ -4,8 +4,7 @@ applications:
     memory: 1G
     route: true
     path: target/app.jar
-    routes:
-    - route: http://todos-vuejs.apps.pcfone.io/api
+    random-route: true
     services:
     - mysql
     
