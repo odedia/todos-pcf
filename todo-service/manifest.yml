@@ -1,10 +1,10 @@
 ---
 applications:
-  - name: todos-server
+  - name: todo-service
     memory: 1G
     route: true
     path: target/app.jar
-    random-route: true
-    services:
-    - mysql
+    routes: 
+    - route: todo-service.apps.pcfone.io/api
+
     
