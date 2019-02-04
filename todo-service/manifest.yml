@@ -6,5 +6,6 @@ applications:
     path: target/app.jar
     routes: 
     - route: todo-service.apps.pcfone.io/api
-
+    services:
+    - mysql
     
