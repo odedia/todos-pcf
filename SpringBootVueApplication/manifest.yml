@@ -5,7 +5,7 @@ applications:
     route: true
     path: target/app.jar
     routes:
-    - route: https://todos-vuejs.apps.pcfone.io
+    - route: https://todos-vuejs.apps.pcfone.io/api
     services:
     - mysql
     
