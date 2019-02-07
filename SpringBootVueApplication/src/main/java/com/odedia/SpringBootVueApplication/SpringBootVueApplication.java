@@ -10,6 +10,7 @@ public class SpringBootVueApplication {
 		SpringApplication.run(SpringBootVueApplication.class, args);
 	}
 //aaa
+	//bbb
 	// We actually don't need CORS configuration while running on PCF,
 // Because we can map both frontend and backend to the same domain name
 // and separate the applications based on path.
