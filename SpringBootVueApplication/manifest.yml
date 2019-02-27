@@ -1,11 +1,11 @@
 ---
 applications:
-  - name: todos-server
+  - name: todo-service
     memory: 1G
     route: true
     path: target/app.jar
-    routes:
-    - route: https://todos-vuejs.apps.pcfone.io/api
+    routes: 
+    - route: todo-service.app.51.144.77.23.cf.pcfazure.com/api
     services:
     - mysql
-    
+    - config-server
