@@ -1,0 +1,61 @@
+SpringBootVueApplication folder
+idea pom.xml
+
+manifest.yml - no services at first.
+
+cf push
+
+show Apps Manager, show app.
+
+org.springframework.data -- DEBUG
+ENABLE METRICS FORWARDING
+
+Create some records:
+
+http POST https://todo-service.apps.pcfone.io/api/todos title="Do Something"
+http POST https://todo-service.apps.pcfone.io/api/todos title="Do Something"
+http POST https://todo-service.apps.pcfone.io/api/todos title="Do Something"
+
+
+
+
+
+
+Restart - records are gone. So:
+
+cf create-service p.mysql db-small mysql
+
+cf service mysql
+
+push UI:
+
+cf push (creates a random route)
+
+Try to open UI - can't access backend.
+
+Map todo-service to todo-ui, open that URL and we can access the backend.
+
+Check mysql - should be in "succeeded".
+
+cf bind-service todo-service mysql
+
+cf restage todo-service
+
+
+http POST https://todo-service.apps.pcfone.io/api/todos title="We have a database"
+http POST https://todo-service.apps.pcfone.io/api/todos title="We have a database"
+http POST https://todo-service.apps.pcfone.io/api/todos title="We have a database"
+
+Show API, show UI.
+
+Restart API, data is still there in the UI.
+
+Metrics
+
+
+
+
+
+
+
+

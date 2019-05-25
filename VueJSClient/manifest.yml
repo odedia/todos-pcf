@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: todos-ui
+  - name: todo-ui
     memory: 256M
     random-route: true
 #    - route: https://todos-vuejs.apps.pcfone.io
