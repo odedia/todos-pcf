@@ -5,6 +5,6 @@ applications:
     route: true
     path: target/app.jar
     routes: 
-    - route: todo-service.apps.pcfone.io/api
+    - route: todo-service.apps.pcf.pvtl.dev/api
 #    services:
 #    - mysql
