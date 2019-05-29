@@ -13,8 +13,8 @@ resources:
     uri: https://github.com/odedia/todos-pcf.git
     branch: master
     paths:
-    - VueJSClient/**/*
-    - VueJSClient/**
+    - todo-ui/**/*
+    - todo-ui/**
 
 - name: cf-push-resource
   type: cf
@@ -35,7 +35,7 @@ jobs:
     trigger: true
   - put: todos-ui-docker-image
     params:
-      build: source-code/VueJSClient
+      build: source-code/todo-ui
 
 - name: push-to-pcf
   public: true
@@ -48,5 +48,5 @@ jobs:
     trigger: true
   - put: cf-push-resource
     params:
-      manifest: source-code/VueJSClient/manifest.yml
+      manifest: source-code/todo-ui/manifest-docker.yml
 
