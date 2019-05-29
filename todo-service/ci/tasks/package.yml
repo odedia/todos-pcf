@@ -13,7 +13,7 @@ outputs:
 - name: package-output
 
 run:
-  path: source-code/SpringBootVueApplication/ci/tasks/package.sh
+  path: source-code/todo-service/ci/tasks/package.sh
 
 caches:
   - path: .m2/
