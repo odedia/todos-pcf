@@ -9,7 +9,7 @@ applications:
   - name: todos-server
     memory: 1G
     route: true
-    path: SpringBootVueApplication/target/app.jar
+    path: todo-service/target/app.jar
     routes:
     - route: https://<changeme>/api
     services:

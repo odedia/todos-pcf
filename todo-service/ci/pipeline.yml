@@ -5,8 +5,8 @@ resources:
     uri: https://github.com/odedia/todos-pcf.git
     branch: master
     paths:
-    - SpringBootVueApplication/**/*
-    - SpringBootVueApplication/*
+    - todo-service/**/*
+    - todo-service/*
 
 - name: cf-push-resource
   type: cf
@@ -25,9 +25,9 @@ jobs:
   - get: source-code
     trigger: true
   - task: package
-    file: source-code/SpringBootVueApplication/ci/tasks/package.yml
+    file: source-code/todo-service/ci/tasks/package.yml
   - put: cf-push-resource
     params:
-      manifest: source-code/SpringBootVueApplication/manifest.yml
+      manifest: source-code/todo-service/manifest.yml
       path: package-output/app.jar
 
