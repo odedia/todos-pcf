@@ -1,2 +1,5 @@
 node_modules/
-
+todo-ui/node_modules
+todo-analytics/bin
+todo-analytics/obj
+.DS_Store
