@@ -2,7 +2,7 @@
 
 set -e -u -x
 
-artifact=source-code/SpringBootVueApplication
+artifact=source-code/todo-service
 
 export ROOT_FOLDER=$( pwd )
 M2_HOME=${HOME}/.m2
