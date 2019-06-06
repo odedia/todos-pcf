@@ -1,0 +1,6 @@
+---
+applications:
+  - name: todo-service
+    memory: 1G
+    random-route: true
+    path: target/app.jar
