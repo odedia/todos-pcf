@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="title">Todos V2</h1>
+    <h1 class="title">Todos</h1>
     <h1 class="email">{{userEmail}}</h1>
     <section class="todoapp">
       <div v-if="loading">
