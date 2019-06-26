@@ -1,13 +1,13 @@
 package com.odedia;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
-import io.micrometer.core.instrument.Gauge;
-import io.micrometer.core.instrument.MeterRegistry;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
@@ -25,17 +25,32 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import io.micrometer.core.instrument.Gauge;
+import io.micrometer.core.instrument.MeterRegistry;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
+@RestController
 public class SpringBootVueApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootVueApplication.class, args);
 	}
+
+	@GetMapping("processing")
+	public @ResponseBody String processData(HttpServletRequest request) {
+		return ("Remote address is " + request.getRemoteAddr());
+	}
+
+
+
 }
 
 @Entity
@@ -46,7 +61,7 @@ class Todo {
 	@GeneratedValue
 	private Long id;
 
-	@NonNull
+	@NotNull
 	private String title;
 
 	private Boolean completed = false;
@@ -65,6 +80,7 @@ class TaskEventHandler {
 	@HandleBeforeSave
 	public void handleBeforeSave(Todo todo) {
 		if (todo.getCompleted()) {
+
 			log.info("Sending completed message for {}", todo.getTitle());
 			source.output().send(MessageBuilder.withPayload(todo.getTitle()).build());
 		}
@@ -112,7 +128,7 @@ class AccessLogMicrometer {
 	@Bean
 	public Gauge accessLogCounter(MeterRegistry registry) {
 		return Gauge.builder("todos.total", () -> repo.count()).tag("kind", "performance")
-				.description("Todos total count").register(registry);
+				.description("Todos total count!").register(registry);
 	}
 }
 

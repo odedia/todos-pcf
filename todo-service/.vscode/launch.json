@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootVueApplication<todo-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.odedia.SpringBootVueApplication",
+            "projectName": "todo-service",
+            "args": ""
+        }
+    ]
+}

@@ -6,5 +6,6 @@ applications:
     path: target/app.jar
     routes: 
     - route: todo-service.apps.pcf.pvtl.dev/api
-#    services:
-#    - mysql
+    services:
+    - mysql
+    - rabbitmq
