@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TodoListenerApplication<todo-listener>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.odedia.todolistener.TodoListenerApplication",
+            "projectName": "todo-listener",
+            "args": ""
+        }
+    ]
+}
