@@ -49,7 +49,10 @@ public class SpringBootVueApplication {
 		return ("Remote address is " + request.getRemoteAddr());
 	}
 
-
+    @GetMapping("amit")
+    public String hello(){
+        return "Amit";
+    }
 
 }
 
