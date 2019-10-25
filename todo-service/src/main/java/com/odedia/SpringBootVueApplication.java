@@ -131,7 +131,7 @@ class AccessLogMicrometer {
 	@Bean
 	public Gauge accessLogCounter(MeterRegistry registry) {
 		return Gauge.builder("todos.total", () -> repo.count()).tag("kind", "performance")
-				.description("Todos total count!").register(registry);
+				.description("Todos total count").register(registry);
 	}
 }
 
