@@ -17,3 +17,4 @@ run:
 
 caches:
   - path: .m2/
+  - path: repo/maven
