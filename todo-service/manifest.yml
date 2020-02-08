@@ -2,7 +2,8 @@
 applications:
   - name: todo-service
     memory: 1G
-    route: true
+    buildpacks:
+    - java_buildpack_offline
     path: target/app.jar
     routes: 
     - route: todo-service.apps.pcfone.io/api
