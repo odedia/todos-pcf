@@ -48,5 +48,5 @@ jobs:
     trigger: true
   - put: cf-push-resource
     params:
-      manifest: source-code/todo-ui/manifest-docker.yml
+      manifest: source-code/todo-ui/manifest.yml
 
