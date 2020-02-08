@@ -17,8 +17,8 @@ export default {
       return data ? JSON.parse(data)._embedded.todos : data;  
     }]  
   }),  
-  // (U)pdate  
+  // (U)pdate API
   updateForId: (id, text, completed) => instance.put('todos/'+id, {title: text, completed: completed}),  
-  // (D)elete  
+  // (D)elete API
   removeForId: (id) => instance.delete('todos/'+id)  
 }
